@@ -3,7 +3,6 @@
     <HeaderNav></HeaderNav>
     <div class="course-banner relative">
       <GLArtCanvas :rounded="'0px 0px 0px 0px'" class="full" bgcolor="#000000">
-        <!-- <MBLinesBloom></MBLinesBloom> -->
         <Bloomer :settings="{
           exposure: 1.0,
           bloomStrength: 2,
@@ -12,35 +11,24 @@
         }"></Bloomer>
         <FastFlame :sx="3.6"></FastFlame>
       </GLArtCanvas>
-      <div class="absolute course-banner-overlay top-0 left-0 w-full h-full flex flex-col justify-center items-center">
-        <div class="text-white text-2xl lg:text-4xl">Not Found</div>
-        <div class="text-white text-xl lg:text-3xl">or</div>
-        <div class="text-white text-2xl lg:text-4xl">Under Development</div>
-        <div class="text-white underline mt-12 cursor-pointer" @click="$router.go(-1)">Let's Go Back</div>
+      <div class="absolute e404-overlay top-0 left-0 w-full h-full flex flex-col justify-center items-center">
+        <div class="text-2xl lg:text-4xl" style="color: var(--cosmos-text); font-family: var(--font-display); font-weight: 800;">Not Found</div>
+        <div class="text-xl lg:text-3xl my-2" style="color: var(--cosmos-text-dim);">or</div>
+        <div class="text-2xl lg:text-4xl" style="color: var(--cosmos-text); font-family: var(--font-display); font-weight: 800;">Under Development</div>
+        <div class="mt-12 cursor-pointer e404-back-link" @click="$router.go(-1)">&larr; Let's Go Back</div>
       </div>
     </div>
 
-    <section class="text-gray-700 body-font max-w-5xl mx-auto">
+    <section class="max-w-5xl mx-auto">
       <div class="container px-5 py-24 mx-auto flex flex-wrap">
         <div class="flex flex-wrap w-full">
           <div class="w-full rounded-lg md:mt-0 mt-12">
-            <div class="course-catalogue-art rounded-lg ">
+            <div class="e404-art rounded-lg ">
               <GLArtCanvas class="h-full w-full rounded-lg" :rounded="'8px 8px 8px 8px'">
-                <!-- <Bloomer :settings="{
-                  exposure: 1.0,
-                  bloomStrength: 1.7,
-                  bloomThreshold: 20.72 / 100.0,
-                  bloomRadius: 72.99 / 100.0 * 2
-                }"></Bloomer> -->
-
                 <GLFlower></GLFlower>
-
-                <!-- <EnergyArt :pz="50" :lowres="true"></EnergyArt> -->
-                <!-- <FastFlame :sx="3.6" :lowres="true"></FastFlame> -->
               </GLArtCanvas>
             </div>
           </div>
-          <!-- <img class="lg:w-3/5 md:w-1/2 object-cover object-center rounded-lg md:mt-0 mt-12" src="https://dummyimage.com/1200x500" alt="step"> -->
         </div>
       </div>
     </section>
@@ -63,26 +51,24 @@ export default {
 </script>
 
 <style lang="postcss">
-.course-banner{
-  height: 60vh;
-}
-.course-banner-overlay{
-  background-color: rgba(0, 0, 0, 0.185);
+.e404-overlay {
+  background: linear-gradient(180deg, rgba(10, 10, 15, 0) 0%, rgba(10, 10, 15, 0.5) 100%);
 }
 
-.course-catalogue-art{
+.e404-back-link {
+  color: var(--cosmos-brand);
+  transition: opacity 0.2s ease;
+  text-decoration: underline;
+}
+.e404-back-link:hover {
+  opacity: 0.8;
+}
+
+.e404-art {
   position: sticky;
   top: 30px;
   height: 550px;
-  background-image: url(./img/cherry.jpg);
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat no-repeat;
-  background-color: #142f79;
+  background-color: #0a0a0f;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
-/* @screen lg{
-  .course-catalogue-art{
-    height: 100%;
-  }
-} */
 </style>

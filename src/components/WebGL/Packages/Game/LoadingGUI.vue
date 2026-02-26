@@ -1,6 +1,6 @@
 <template>
   <div v-if="showLoading" class="absolute top-0 left-0 h-full w-full flex justify-center items-center" :class="{ 'bg-transp-black': true }">
-    <div class="px-4 py-2 rounded-full bg-white text-black text-xs"> {{loadingPercentage.toFixed(2)}}% Loading...</div>
+    <div class="px-4 py-2 rounded-full text-xs" style="background: rgba(255,255,255,0.08); color: var(--cosmos-text-muted); border: 1px solid rgba(255,255,255,0.1);"> {{loadingPercentage.toFixed(2)}}% Loading...</div>
   </div>
 </template>
 

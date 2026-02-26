@@ -2,7 +2,7 @@
   <div class="full">
     <HeaderNav></HeaderNav>
 
-    <div class="banner  bg-gray-400">
+    <div class="banner banner-cosmos">
       <LightedCanvas :dpi="dpi" class="w-full h-full relative" @click="() => $refs.character.$emit('act', { name: getWinMove() })" @touchstart="() => $refs.character.$emit('act', { name: getWinMove() })">
         <O3D layout="overall">
           <GameNPC ref="character" @ready="syncScroll($event)" :camLock="true" :char="'swat'" :move="move">
@@ -88,5 +88,21 @@ export default {
 <style lang="postcss">
 .banner{
   height: 75vh;
+}
+.banner-cosmos {
+  background-color: var(--cosmos-base);
+  position: relative;
+}
+.banner-cosmos::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 60%;
+  background: radial-gradient(ellipse at center bottom, rgba(67, 113, 255, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
 }
 </style>

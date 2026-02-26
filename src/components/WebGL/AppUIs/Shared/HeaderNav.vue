@@ -1,8 +1,8 @@
 <template>
   <div>
-    <header class="text-gray-700 body-font border-b">
+    <header class="header-nav body-font">
       <div class="w-full flex flex-wrap p-5 flex-row justify-between items-center">
-        <router-link to="/" class="md:w-auto inline-flex title-font font-medium items-center justify-start text-gray-900">
+        <router-link to="/" class="md:w-auto inline-flex title-font font-medium items-center justify-start" style="color: var(--cosmos-text)">
           <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
           </svg> -->
@@ -17,12 +17,12 @@
                   </g>
               </g>
           </svg>
-          <span class="ml-3 text-xl">Lok Lok Academy</span>
+          <span class="ml-3 text-xl font-display" style="font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em;">Lok Lok Academy</span>
         </router-link>
 
         <nav class="hidden md:flex md:ml-auto flex-wrap items-center text-base justify-center">
           <span v-for="(link, idx) in main" :key="idx">
-            <router-link v-if="link.type === 'router'" :exact-active-class="'underline'" class="mr-5 hover:text-gray-900" :to="`${link.path}`" :class="{ 'mr-5': idx !== main.length - 1 }">{{ link.name }}</router-link>
+            <router-link v-if="link.type === 'router'" :exact-active-class="'underline'" class="mr-5 nav-link" :to="`${link.path}`" :class="{ 'mr-5': idx !== main.length - 1 }">{{ link.name }}</router-link>
             <a v-if="link.type === 'external'" :href="link.path" target="_blank">
               {{ link.name }}
               <svg class="inline-block mx-1 scale-75 transform" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M14 4h-13v18h20v-11h1v12h-22v-20h14v1zm10 5h-1v-6.293l-11.646 11.647-.708-.708 11.647-11.646h-6.293v-1h8v8z"/></svg>
@@ -37,7 +37,7 @@
         </button> -->
 
         <button @click="showMenu = !showMenu" class="inline-flex md:hidden items-center border-0 focus:outline-none py-1 px-1">
-          <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M24 18v1h-24v-1h24zm0-6v1h-24v-1h24zm0-6v1h-24v-1h24z" fill="#1040e2"/><path d="M24 19h-24v-1h24v1zm0-6h-24v-1h24v1zm0-6h-24v-1h24v1z"/></svg>
+          <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M24 18v1h-24v-1h24zm0-6v1h-24v-1h24zm0-6v1h-24v-1h24z" fill="#6670a0"/><path d="M24 19h-24v-1h24v1zm0-6h-24v-1h24v1zm0-6h-24v-1h24v1z" fill="#6670a0"/></svg>
         </button>
       </div>
     </header>
@@ -49,15 +49,15 @@
     <transition name="fade">
       <div v-show="showMenu" class="fixed top-0 right-0 menu-absolute-right h-full z-50 p-6">
         <div class="text-right">
-          <svg class="inline-block" @click="showMenu = false" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 11.293l10.293-10.293.707.707-10.293 10.293 10.293 10.293-.707.707-10.293-10.293-10.293 10.293-.707-.707 10.293-10.293-10.293-10.293.707-.707 10.293 10.293z"/></svg>
+          <svg class="inline-block cursor-pointer" @click="showMenu = false" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" fill="#8888a0"><path d="M12 11.293l10.293-10.293.707.707-10.293 10.293 10.293 10.293-.707.707-10.293-10.293-10.293 10.293-.707-.707 10.293-10.293-10.293-10.293.707-.707 10.293 10.293z"/></svg>
         </div>
-        <div class="border-b border-black w-full pb-2 mb-3">Menu</div>
-        <router-link class="block mb-4" to="/">Home</router-link>
-        <router-link class="block mb-4" to="/course-catalogue">Course Catalogue</router-link>
-        <a class="block mb-4" target="_blank" href="https://www.instagram.com/wonglok831/">Lok's Instagram</a>
+        <div class="mobile-menu-divider w-full pb-2 mb-3" style="font-family: var(--font-display); font-weight: 700;">Menu</div>
+        <router-link class="block mb-4 mobile-menu-link" to="/">Home</router-link>
+        <router-link class="block mb-4 mobile-menu-link" to="/course-catalogue">Course Catalogue</router-link>
+        <a class="block mb-4 mobile-menu-link" target="_blank" href="https://www.instagram.com/wonglok831/">Lok's Instagram</a>
         <div class="h-12"></div>
-        <div class="border-b border-black w-full pb-2 mb-3" v-if="lessons.length > 0">{{ lessons[0].meta.courseName }}</div>
-        <router-link class="mb-4" tag="div" :to="`${lesson.path}`" v-for="(lesson, idx) in lessons" :key="idx">
+        <div class="mobile-menu-divider w-full pb-2 mb-3" v-if="lessons.length > 0">{{ lessons[0].meta.courseName }}</div>
+        <router-link class="mb-4 mobile-menu-link" tag="div" :to="`${lesson.path}`" v-for="(lesson, idx) in lessons" :key="idx">
           {{ lesson.name }}
         </router-link>
       </div>
@@ -94,15 +94,41 @@ export default {
 <style lang="postcss">
 body{
   overflow-x: hidden;
+  background-color: var(--cosmos-base);
 }
-.menu-absolute-right{
+.header-nav {
+  background-color: var(--cosmos-base);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--cosmos-text-muted);
+}
+.nav-link {
+  color: var(--cosmos-text-muted);
+  transition: color 0.2s ease;
+}
+.nav-link:hover {
+  color: var(--cosmos-text);
+}
+.menu-absolute-right {
   width: 285px;
-  background-color: white;
+  background-color: #12121a;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+}
+.mobile-menu-divider {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--cosmos-text);
+}
+.mobile-menu-link {
+  color: var(--cosmos-text-muted);
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+.mobile-menu-link:hover {
+  color: var(--cosmos-text);
 }
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter, .fade-leave-to {
   opacity: 0;
 }
 </style>

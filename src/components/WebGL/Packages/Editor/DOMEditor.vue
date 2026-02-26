@@ -1,6 +1,6 @@
 <template>
   <div class="o3d-editor full flex flex-col lg:flex-row">
-    <div v-if="useEditor" class="half-height w-full lg:w-6/12 lg:h-full  item-left bg-gray-200 border-r border-green-500">
+    <div v-if="useEditor" class="half-height w-full lg:w-6/12 lg:h-full  item-left editor-pane-dark border-r">
       <ACE
         :colorPrefix="'#'"
         @save="onSave()"
@@ -8,13 +8,13 @@
         v-model="current.vueCode"
         @input="onChangeTreeCode({ vueCode: $event });"
         @slide="onChangeTreeCode({ vueCode: $event }); needsRunSave = true;"
-        theme="chrome"
+        theme="monokai"
         width="100%"
         :height="'calc(100% - 0px)'"
       >
       </ACE>
     </div>
-    <div :class="{ 'half-height w-full lg:w-6/12 lg:h-full ': useEditor, 'w-full h-full': !useEditor }" class="item-right bg-white relative">
+    <div :class="{ 'half-height w-full lg:w-6/12 lg:h-full ': useEditor, 'w-full h-full': !useEditor }" class="item-right editor-output-dark relative">
       <div v-html="styleHTML"></div>
       <component ref="scene" v-if="makeLIVE && runCanvas" :is="makeLIVE"></component>
     </div>

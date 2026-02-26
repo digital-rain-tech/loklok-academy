@@ -1,19 +1,19 @@
 <template>
-  <section class="pb-20 bg-gray-300 -mt-16">
+  <section class="section-intro pb-20 -mt-16">
     <div class="container mx-auto px-4">
       <div class="flex flex-wrap">
         <div class="lg:pt-6 pt-6 w-full md:w-4/12 px-4 text-center" @mouseenter="$emit('play', 'Cheering While Sitting')">
           <div
-            class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
+            class="relative flex flex-col min-w-0 break-words glass-card w-full mb-8 rounded-lg intro-card"
           >
             <div class="px-4 py-5 flex-auto">
               <div
-                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400"
+                class="intro-icon-badge intro-icon-amber text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 rounded-full"
               >
                 <i class="fas fa-award"></i>
               </div>
-              <h6 class="text-xl font-semibold">All Coding Tutorials are Free</h6>
-              <p class="mt-2 mb-4 text-gray-600">
+              <h6 class="text-xl font-semibold" style="color: var(--cosmos-text); font-family: var(--font-display); font-weight: 700;">All Coding Tutorials are Free</h6>
+              <p class="mt-2 mb-4" style="color: var(--cosmos-text-muted);">
                 I love learning tutorials from the internet for free. I would also like to give back to our community!
               </p>
             </div>
@@ -22,16 +22,16 @@
 
         <div class="w-full md:w-4/12 px-4 text-center" @mouseenter="$emit('play', 'Sitting Victory')">
           <div
-            class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
+            class="relative flex flex-col min-w-0 break-words glass-card w-full mb-8 rounded-lg intro-card"
           >
             <div class="px-4 py-5 flex-auto">
               <div
-                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400"
+                class="intro-icon-badge intro-icon-brand text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 rounded-full"
               >
                 <i class="fas fa-calendar-check"></i>
               </div>
-              <h6 class="text-xl font-semibold">From Easy to In-Depth</h6>
-              <p class="mt-2 mb-4 text-gray-600">
+              <h6 class="text-xl font-semibold" style="color: var(--cosmos-text); font-family: var(--font-display); font-weight: 700;">From Easy to In-Depth</h6>
+              <p class="mt-2 mb-4" style="color: var(--cosmos-text-muted);">
                 It's only a matter of time that you will master the Web Platform Technology.
               </p>
             </div>
@@ -40,16 +40,16 @@
 
         <div class="lg:pt-6 w-full md:w-4/12 px-4 text-center" @mouseenter="$emit('play', 'Sitting Thumbs Up')">
           <div
-            class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
+            class="relative flex flex-col min-w-0 break-words glass-card w-full mb-8 rounded-lg intro-card"
           >
             <div class="px-4 py-5 flex-auto">
               <div
-                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-green-400"
+                class="intro-icon-badge intro-icon-emerald text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 rounded-full"
               >
                 <i class="fas fa-fingerprint"></i>
               </div>
-              <h6 class="text-xl font-semibold">JavaScript Fantasy Land</h6>
-              <p class="mt-2 mb-4 text-gray-600">
+              <h6 class="text-xl font-semibold" style="color: var(--cosmos-text); font-family: var(--font-display); font-weight: 700;">JavaScript Fantasy Land</h6>
+              <p class="mt-2 mb-4" style="color: var(--cosmos-text-muted);">
                 Nowadays, who doesn't love JavaScript?! It's in front end and backend server and desktop application such as electron and nwjs.
               </p>
             </div>
@@ -59,27 +59,26 @@
       <div class="flex flex-wrap items-center mt-24">
         <div class="w-full md:w-5/12 px-4 mr-auto ml-auto">
           <div
-            class="text-gray-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-gray-100"
+            class="p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full"
+            style="background: rgba(255,255,255,0.05); color: var(--cosmos-text-muted);"
           >
             <i class="fas fa-book-reader text-xl"></i>
           </div>
-          <h3 class="text-3xl mb-2 font-semibold leading-normal">
+          <h3 class="text-3xl mb-2 font-semibold leading-normal" style="color: var(--cosmos-text); font-family: var(--font-display); font-weight: 800;">
             Let's explore the possibilities within our Browser.
           </h3>
-          <!-- <p
-            class="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-700"
-          >
-          </p> -->
           <div
-            class="text-lg font-light leading-relaxed mt-0 mb-4 text-gray-700"
+            class="text-lg font-light leading-relaxed mt-0 mb-4"
+            style="color: var(--cosmos-text-muted);"
           >
             <div class="mb-3">
               Courses on Front End Technologies:
             </div>
-            <ul class="pl-6 list-disc">
-              <li class="" v-for="(cr, cri) in courses" :key="cri">
-                <span v-if="cr.underDevelopment">{{ cr.name }}  (In Progress)</span>
-                <router-link class="underline" :to="`${cr.path}`" v-if="!cr.underDevelopment">{{ cr.name }}</router-link>
+            <ul class="course-list pl-0 list-none">
+              <li class="course-list-item" v-for="(cr, cri) in courses" :key="cri" :style="{ '--course-color': courseColors[cri] || 'var(--cosmos-text-muted)' }">
+                <span class="course-dot" :style="{ background: courseColors[cri] || 'var(--cosmos-text-muted)' }"></span>
+                <span v-if="cr.underDevelopment" style="color: var(--cosmos-text-dim);">{{ cr.name }}  (In Progress)</span>
+                <router-link class="course-link" :style="{ color: courseColors[cri] || 'var(--cosmos-text)' }" :to="`${cr.path}`" v-if="!cr.underDevelopment">{{ cr.name }}</router-link>
               </li>
             </ul>
           </div>
@@ -87,13 +86,8 @@
         <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
 
           <div
-            class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-pink-600"
+            class="relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg overflow-hidden hero-card-pink"
           >
-            <!-- <img
-              alt="..."
-              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1051&amp;q=80"
-              class="w-full align-middle rounded-t-lg"
-            /> -->
             <div class="w-full align-middle rounded-t-lg h-64">
               <GLArtCanvas class="h-full w-full">
                 <Bloomer :settings="{
@@ -107,22 +101,10 @@
               </GLArtCanvas>
             </div>
             <blockquote class="relative p-8 mb-4">
-              <!-- <svg
-                preserveAspectRatio="none"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 583 95"
-                class="absolute left-0 w-full block"
-                style="height: 95px; top: -94px;"
-              >
-                <polygon
-                  points="-30,95 583,95 583,65"
-                  class="text-pink-600 fill-current"
-                ></polygon>
-              </svg> -->
-              <h4 class="text-xl font-bold text-white">
+              <h4 class="text-xl font-bold" style="color: var(--cosmos-text); font-family: var(--font-display); font-weight: 700;">
                 From Zero to Hero
               </h4>
-              <p class="text-md font-light mt-2 text-white">
+              <p class="text-md font-light mt-2" style="color: rgba(255,255,255,0.7);">
                 It's always intimidating to do what requires time and proper training. But with perseverance and every lesson on the journey, you are getting progress and closer and closer to your goal everyday.
               </p>
             </blockquote>
@@ -142,12 +124,88 @@ export default {
   ],
   data () {
     return {
-      courses
+      courses,
+      courseColors: [
+        '#f59e0b', // JS Basics - amber
+        '#f97316', // ES6 - orange
+        '#ef4444', // DOM - red
+        '#ec4899', // Canvas 2D - pink
+        '#8b5cf6', // WebGL - purple
+        '#4371FF', // Three.js Basic - brand blue
+        '#06b6d4', // Three.js Intermediate - cyan
+        '#10b981', // Three.js Advanced - emerald
+      ]
     }
   }
 }
 </script>
 
 <style>
+.section-intro {
+  background-color: var(--cosmos-base);
+  position: relative;
+}
+.section-intro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 400px;
+  background: radial-gradient(ellipse at center top, rgba(245, 158, 11, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
 
+.intro-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.intro-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+}
+
+.intro-icon-badge {
+  background: rgba(255, 255, 255, 0.06);
+  position: relative;
+}
+.intro-icon-amber {
+  color: var(--cosmos-amber);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+}
+.intro-icon-brand {
+  color: var(--cosmos-brand);
+  box-shadow: 0 0 20px rgba(67, 113, 255, 0.2);
+}
+.intro-icon-emerald {
+  color: var(--cosmos-emerald);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+.course-list-item {
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+}
+.course-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 12px;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px currentColor;
+}
+.course-link {
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.course-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.hero-card-pink {
+  background: linear-gradient(135deg, rgba(236, 72, 153, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+  border: 1px solid rgba(236, 72, 153, 0.2);
+}
 </style>

@@ -3,7 +3,7 @@
     <div class="left-lesson-bar hidden md:block">
       <slot name="bar"></slot>
     </div>
-    <div class="right-lesson-box border-l h-full">
+    <div class="right-lesson-box h-full" style="border-left: 1px solid rgba(255,255,255,0.06);">
       <slot name="box"></slot>
     </div>
   </div>
